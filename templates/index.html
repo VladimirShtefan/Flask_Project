@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Владимир Штефан">
+    <title>Сервис Р2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles/signin.css" >
+  </head>
+  <body class="text-center">
+  <main class="form-signin w-100 m-auto">
+      <img class="mb-4" src="../static/styles/r2_negate.bmp" alt="" width="250" height="140">
+      <h1 class="h3 mb-3 fw-normal">Авторизуйтесь</h1>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+      {% endwith %}
+
+      <form action="/login" method="post">
+          <div class="form-floating">
+              <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Имя пользователя">
+              <label for="user_name">Имя пользователя</label>
+          </div>
+          <div class="form-floating">
+              <input type="password" class="form-control" name="user_password" id="user_password" placeholder="Пароль">
+              <label for="user_password">Пароль</label>
+          </div>
+          <div class="checkbox mb-3">
+              <label>
+                  <input type="checkbox" value="True" name="is_active"> Запомнить меня
+              </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+      </form>
+        <p class="mt-5 mb-3 text-muted">&copy; R2 Company 2022</p>
+    </main>
+  </body>
+</html>
